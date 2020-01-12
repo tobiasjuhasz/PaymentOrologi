@@ -1,0 +1,1 @@
+window.Mercadopago.setPublishableKey("TEST-942139d0-9543-4547-8d04-524554820231");
