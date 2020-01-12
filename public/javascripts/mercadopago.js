@@ -55,10 +55,10 @@ function setPaymentMethodInfo(status, response) {
             form.appendChild(input);
         }
 
-        Mercadopago.getInstallments({
-            "bin": getBin(),
-            "amount": parseFloat(document.querySelector('#amount').value),
-        }, setInstallmentInfo);
+        // Mercadopago.getInstallments({
+        //     "bin": getBin(),
+        //     "amount": parseFloat(document.querySelector('#amount').value),
+        // }, setInstallmentInfo);
 
     } else {
         alert(`payment method info error: ${response}`);
