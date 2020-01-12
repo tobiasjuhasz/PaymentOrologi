@@ -47,7 +47,7 @@
                     <h1 class="display-4">Pagar con tarjeta</h1>
                     <p class="lead">Complete todos los campos requeridos (<small class="text-danger">*</small>)</p>
                     <hr class="mb-4" />
-                    <form action="procesar_pago.php" method="GET">
+                    <form action="procesar_pago.php" id="pay" method="post" name="pay">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
@@ -201,7 +201,7 @@
 
                         <div class="btn-group btn-block mt-5">
                             <input type="button" value="Cancelar" class="btn btn-outline-danger border-0" />
-                            <input type="submit" id="pay" value="Confirmar Compra" class="btn btn-success" />
+                            <input type="submit" value="Confirmar Compra" class="btn btn-success" />
                         </div>
                     </form>
                 </div>
