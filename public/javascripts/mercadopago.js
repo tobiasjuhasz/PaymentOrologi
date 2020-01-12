@@ -24,7 +24,7 @@ function guessingPaymentMethod(event) {
     if (event.type == "keyup") {
         if (bin.length >= 6) {
             window.Mercadopago.getPaymentMethod({
-                "bin": bin
+                bin: bin
             }, setPaymentMethodInfo);
         }
     } else {
@@ -55,10 +55,10 @@ function setPaymentMethodInfo(status, response) {
             form.appendChild(input);
         }
 
-        // Mercadopago.getInstallments({
-        //     "bin": getBin(),
-        //     "amount": parseFloat(document.querySelector('#amount').value),
-        // }, setInstallmentInfo);
+        Mercadopago.getInstallments({
+            "bin": getBin(),
+            "amount": parseFloat(document.querySelector('#amount').value),
+        }, setInstallmentInfo);
 
     } else {
         alert(`payment method info error: ${response}`);
@@ -91,5 +91,25 @@ function sdkResponseHandler(status, response) {
         form.appendChild(card);
         doSubmit = true;
         form.submit();
+    }
+};
+
+
+function setInstallmentInfo(status, response) {
+    var selectorInstallments = document.querySelector("#installments"),
+        fragment = document.createDocumentFragment();
+    selectorInstallments.options.length = 0;
+
+    if (response.length > 0) {
+        var option = new Option("Escolha...", '-1'),
+            payerCosts = response[0].payer_costs;
+        fragment.appendChild(option);
+
+        for (var i = 0; i < payerCosts.length; i++) {
+            fragment.appendChild(new Option(payerCosts[i].recommended_message, payerCosts[i].installments));
+        }
+
+        selectorInstallments.appendChild(fragment);
+        selectorInstallments.removeAttribute('disabled');
     }
 };
