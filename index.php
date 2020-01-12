@@ -52,14 +52,14 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label htmlFor="">Nombre</label> <small class="text-danger">*</small>
-                                    <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="" aria-describedby="helpId"   />
+                                    <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="" aria-describedby="helpId" required />
 
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label htmlFor="">Apellido</label> <small class="text-danger">*</small>
-                                    <input type="text" name="Apellido" id="Apellido" class="form-control" placeholder="" aria-describedby="helpId"   />
+                                    <input type="text" name="Apellido" id="Apellido" class="form-control" placeholder="" aria-describedby="helpId" required />
                                 </div>
 
 
@@ -72,13 +72,13 @@
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label htmlFor="">CPO</label> <small class="text-danger">*</small>
-                                            <input type="text" name="CPO" id="CPO" class="form-control" placeholder="" aria-describedby="helpId"   />
+                                            <input type="text" name="CPO" id="CPO" class="form-control" placeholder="" aria-describedby="helpId" required />
                                         </div>
                                     </div>
                                     <div class="col-9">
                                         <div class="form-group">
                                             <label htmlFor="">Localidad</label> <small class="text-danger">*</small>
-                                            <input type="" name="Localidad" id="Localidad" class="form-control" placeholder="" aria-describedby="helpId"   />
+                                            <input type="" name="Localidad" id="Localidad" class="form-control" placeholder="" aria-describedby="helpId" required />
                                         </div>
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label htmlFor="">Dirección</label> <small class="text-danger">*</small>
-                                            <input type="" name="Direccion" id="Direccion" class="form-control" placeholder="" aria-describedby="helpId"   />
+                                            <input type="" name="Direccion" id="Direccion" class="form-control" placeholder="" aria-describedby="helpId" required />
                                         </div>
                                     </div>
                                     <div class="col-3">
@@ -186,7 +186,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><span class="fa fa-user"></span></span>
                                         </div>
-                                        <input type="text" id="cardholderName" data-checkout="cardholderName" class="form-control"  >
+                                        <input type="text" id="cardholderName" data-checkout="cardholderName" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
