@@ -229,9 +229,6 @@
 <script src="src/bootstrap/js/bootstrap.js"></script>
 <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js">
 </script>
-<script class="hidden">
-    Mercadopago.setPublishableKey("TEST-942139d0-9543-4547-8d04-524554820231");
-</script>
 <script src="public/javascripts/mercadopago.js"></script>
 
 </html>

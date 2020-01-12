@@ -1,3 +1,5 @@
+Mercadopago.setPublishableKey("TEST-942139d0-9543-4547-8d04-524554820231");
+
 function addEvent(to, type, fn) {
     if (document.addEventListener) {
         to.addEventListener(type, fn, false);
@@ -8,8 +10,8 @@ function addEvent(to, type, fn) {
     }
 };
 
-addEvent(document.querySelector('#cardNumber'), 'keyup', guessingPaymentMethod);
-addEvent(document.querySelector('#cardNumber'), 'change', guessingPaymentMethod);
+addEvent(document.getElementById('cardNumber'), 'keyup', guessingPaymentMethod);
+addEvent(document.getElementById('cardNumber'), 'change', guessingPaymentMethod);
 
 function getBin() {
     const cardnumber = document.getElementById("cardNumber");
@@ -18,7 +20,7 @@ function getBin() {
 
 function guessingPaymentMethod(event) {
     var bin = getBin();
-
+    console.log()
     if (event.type == "keyup") {
         if (bin.length >= 6) {
             window.Mercadopago.getPaymentMethod({
