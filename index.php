@@ -129,8 +129,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text fa fa-id-card"></span>
                                             </div>
-                                            <select id="docType" data-checkout="docType" class="form-control"></select>
-
+                                            <input type="hidden" value="DNI" id="docType" data-checkout="docType" class="form-control" />
                                             <input type="text" class="form-control" id="docNumber" data-checkout="docNumber" placeholder="12345678" />
                                         </div>
                                     </div>
@@ -180,6 +179,17 @@
 
 
                         <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="">Titular de la tarjeta</label> <small class="text-danger">*</small>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><span class="fa fa-user"></span></span>
+                                        </div>
+                                        <input type="text" id="cardholderName" data-checkout="cardholderName" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
                             <div class=" col-lg-6">
                                 <div class="form-group">
                                     <label htmlFor="installments">Cuotas</label>
