@@ -101,7 +101,7 @@ function setInstallmentInfo(status, response) {
     selectorInstallments.options.length = 0;
 
     if (response.length > 0) {
-        var option = new Option("Escolha...", '-1'),
+        var option = new Option("Seleccione una cuota...", '-1'),
             payerCosts = response[0].payer_costs;
         fragment.appendChild(option);
 

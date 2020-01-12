@@ -129,6 +129,8 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text fa fa-id-card"></span>
                                             </div>
+                                            <select id="docType" data-checkout="docType" class="form-control"></select>
+
                                             <input type="text" class="form-control" id="docNumber" data-checkout="docNumber" placeholder="12345678" />
                                         </div>
                                     </div>
