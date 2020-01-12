@@ -34,6 +34,8 @@ function guessingPaymentMethod(event) {
             }
         }, 100);
     }
+
+    console.log(window.Mercadopago.getPaymentMethod());
 };
 
 function setPaymentMethodInfo(status, response) {

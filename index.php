@@ -143,7 +143,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text fa fa-credit-card"></span>
                                         </div>
-                                        <input type="text" id="cardNumber" data-checkout="cardNumber" class="form-control" placeholder="4509 9535 6623 3704" onPaste="return false" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete="off" />
+                                        <input type="text" id="cardNumber" data-checkout="cardNumber" class="form-control" placeholder="4509 9535 6623 3704" onPaste="return false" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
@@ -154,7 +154,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text fa fa-key"></span>
                                         </div>
-                                        <input type="text" id="securityCode" data-checkout="securityCode" class="form-control" placeholder="123" onPaste="return false" onCopy="return false" onCut="return false" ondrag="return false" ondrop="return false" autocomplete="off" />
+                                        <input type="text" id="securityCode" data-checkout="securityCode" class="form-control" placeholder="123" onPaste="return false" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete="off" />
 
                                     </div>
                                 </div>
@@ -164,12 +164,12 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text fa fa-calendar"></span>
                                         </div>
-                                        <input type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" class="form-control" placeholder="mm" onPaste="return false" onCopy="return false" onCut="return false" maxlength="2" ondrag="return false" ondrop="return false" autocomplete="off"
+                                        <input type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" class="form-control" placeholder="mm" onPaste="return false" onCopy="return false" onCut="return false" maxlength="2" onDrag="return false" onDrop="return false" autocomplete="off"
                                         />
                                         <div class=" input-group-append">
                                             <span class=" input-group-text">/</span>
                                         </div>
-                                        <input type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" class="form-control" placeholder="yyyy" onPaste="return false" onCopy="return false" onCut="return false" maxlength="4" ondrag="return false" ondrop="return false" autocomplete="off"
+                                        <input type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" class="form-control" placeholder="yyyy" onPaste="return false" onCopy="return false" onCut="return false" maxlength="4" onDrag="return false" onDrop="return false" autocomplete="off"
                                         />
                                     </div>
                                 </div>
