@@ -15,12 +15,21 @@
     /* Footer height */
 }
 
+.hidden {
+    display: none;
+}
+
 .bg-dark {
     background-color: #222 !important;
 }
 
 .btn-dark {
     background-color: #333 !important;
+}
+
+#device_profile,
+#thm_mp_cntnr {
+    display: none;
 }
 
 @media(max-width:500px) {
