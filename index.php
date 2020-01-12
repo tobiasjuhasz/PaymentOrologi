@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -23,6 +23,13 @@
 </head>
 
 <body>
+    <?php 
+        require_once 'vendor/autoload.php';
+
+        MercadoPago\SDK::setAccessToken("TEST-6540974822759376-011204-1f1514c4ee488176b1fed65bd4e0e79b-238754877");
+
+        
+    ?>
     <div class="page-container">
         <!-- Nav component Beginning -->
         <div class="bg-dark sticky-top">
