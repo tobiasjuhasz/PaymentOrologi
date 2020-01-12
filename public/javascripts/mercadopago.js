@@ -20,7 +20,7 @@ function getBin() {
 
 function guessingPaymentMethod(event) {
     var bin = getBin();
-    console.log()
+    console.log(bin);
     if (event.type == "keyup") {
         if (bin.length >= 6) {
             window.Mercadopago.getPaymentMethod({
