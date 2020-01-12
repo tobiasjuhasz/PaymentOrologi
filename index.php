@@ -201,7 +201,7 @@
 
                         <div class="btn-group btn-block mt-5">
                             <input type="button" value="Cancelar" class="btn btn-outline-danger border-0" />
-                            <input type="pay" value="Confirmar Compra" class="btn btn-success" />
+                            <input type="submit" id="pay" value="Confirmar Compra" class="btn btn-success" />
                         </div>
                     </form>
                 </div>
