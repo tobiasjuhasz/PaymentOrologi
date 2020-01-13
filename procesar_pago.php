@@ -19,7 +19,7 @@
     $desc = $_POST['description'];
     $amount = $_POST['amount'];
     
-    MercadoPago\SDK::setAccessToken("TEST-6540974822759376-011204-1f1514c4ee488176b1fed65bd4e0e79b-238754877");
+    MercadoPago\SDK::setAccessToken("TEST-6540974822759376-011305-dff2cdc7ceb3b5ee8b14f0bdb61e6b1f-238754877");
     // //...
     // $payment = new MercadoPago\Payment();
     // $payment->transaction_amount = 110;
