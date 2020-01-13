@@ -245,8 +245,8 @@
 
 <?php 
         require_once 'vendor/autoload.php';
-        
-        MercadoPago\SDK::SetAccessToken('TEST-6540974822759376-011305-dff2cdc7ceb3b5ee8b14f0bdb61e6b1f-238754877');
+
+        MercadoPago\SDK::SetAccessToken('TEST-6540974822759376-011019-a1b37cdb577f60fd7858d07f3615607c-238754877');
 
         // Datos del envío 
         $nom = $_POST['Nombre'];
@@ -256,7 +256,7 @@
         $dir = $_POST['Direccion'];
         $piso = $_POST['Piso'];
         $dpto = $_POST['Departamento'];
-        
+
 
         // Datos del pago
         $email = $_POST['email'];
@@ -283,5 +283,5 @@
             // Print the payment status
             echo $payment->status;
         }
-    
+
 ?>
