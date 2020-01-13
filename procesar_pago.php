@@ -1,8 +1,6 @@
 <?php 
-    require __DIR__ . 'vendor/autoload.php';
+    require __DIR__ . '/vendor/autoload.php';
 
-
-    
     // Datos del envío 
     $nom = $_POST['Nombre'];
     $ape = $_POST['Apellido'];
@@ -37,5 +35,4 @@
     //...
     // Print the payment status
     echo $payment->status;
-    
 ?>
