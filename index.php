@@ -24,10 +24,9 @@
 
 <body>
     <?php 
-        require __DIR__ . '/vendor/autoload.php';
-        echo 'hola';
-        MercadoPago\SDK::setAccessToken("TEST-6540974822759376-011305-dff2cdc7ceb3b5ee8b14f0bdb61e6b1f-238754877");
-        echo 'chau';
+        require_once 'vendor/autoload.php';
+        
+        MercadoPago\SDK::SetAccessToken('TEST-6540974822759376-011305-dff2cdc7ceb3b5ee8b14f0bdb61e6b1f-238754877');
     ?>
     <div class="page-container">
         <!-- Nav component Beginning -->
