@@ -45,7 +45,7 @@
                     <h1 class="display-4">Pagar con tarjeta</h1>
                     <p class="lead">Complete todos los campos requeridos (<small class="text-danger">*</small>)</p>
                     <hr class="mb-4" />
-                    <form action="procesar_pago.php" id="pay" method="post" name="pay">
+                    <form action="procesar_pago" id="pay" method="post" name="pay">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
@@ -247,4 +247,41 @@
         require_once 'vendor/autoload.php';
         
         MercadoPago\SDK::SetAccessToken('TEST-6540974822759376-011305-dff2cdc7ceb3b5ee8b14f0bdb61e6b1f-238754877');
-    ?>
+
+        // Datos del envío 
+        $nom = $_POST['Nombre'];
+        $ape = $_POST['Apellido'];
+        $cpo = $_POST['CPO'];
+        $loc = $_POST['Localidad'];
+        $dir = $_POST['Direccion'];
+        $piso = $_POST['Piso'];
+        $dpto = $_POST['Departamento'];
+        
+
+        // Datos del pago
+        $email = $_POST['email'];
+        $token = $_POST['token'];
+        $installments = $_POST['installments'];
+        $payment_method_id = $_POST['paymentMethodId'];
+        $desc = $_POST['description'];
+        $amount = $_POST['amount'];
+
+        if($token != ''){
+            //...
+            $payment = new MercadoPago\Payment();
+            $payment->transaction_amount = 110;
+            $payment->token = $token;
+            $payment->description = "OrologiFB - " . $desc;
+            $payment->installments = $installments;
+            $payment->payment_method_id = $payment_method_id;
+            $payment->payer = array(
+                "email" => $email
+            );
+            // Save and posting the payment
+            $payment->save();
+            //...
+            // Print the payment status
+            echo $payment->status;
+        }
+    
+?>
