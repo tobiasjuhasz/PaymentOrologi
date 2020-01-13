@@ -794,5 +794,44 @@
             }
         ],
         "homepage": "https://github.com/mercadopago/dx-php"
+    },
+    {
+        "name": "mercadopago/sdk",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mercadopago/sdk-php.git",
+            "reference": "67f65735d5d720a7fc2569163f5c7d150adc613d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mercadopago/sdk-php/zipball/67f65735d5d720a7fc2569163f5c7d150adc613d",
+            "reference": "67f65735d5d720a7fc2569163f5c7d150adc613d",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*"
+        },
+        "time": "2019-04-15T14:29:38+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "lib/mercadopago.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "Horacio Casatti",
+                "email": "horacio.casatti@mercadolibre.com"
+            }
+        ],
+        "description": "MercadoPago SDK module for Payments integration.",
+        "keywords": [
+            "mercadopago",
+            "sdk"
+        ]
     }
 ]

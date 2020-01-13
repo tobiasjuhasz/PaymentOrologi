@@ -1,6 +1,7 @@
 {
     "require": {
         "mercadopago/dx-php": "dev-master",
-        "ktamas77/firebase-php": "^2.2"
+        "ktamas77/firebase-php": "^2.2",
+        "mercadopago/sdk": "dev-master"
     }
 }

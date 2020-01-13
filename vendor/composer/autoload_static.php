@@ -70,6 +70,9 @@ class ComposerStaticInit1d0ea4f4de516e9514a5e9279bbe03fa
         'Firebase\\FirebaseInterface' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseInterface.php',
         'Firebase\\FirebaseLib' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseLib.php',
         'Firebase\\FirebaseStub' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseStub.php',
+        'MP' => __DIR__ . '/..' . '/mercadopago/sdk/lib/mercadopago.php',
+        'MPRestClient' => __DIR__ . '/..' . '/mercadopago/sdk/lib/mercadopago.php',
+        'MercadoPagoException' => __DIR__ . '/..' . '/mercadopago/sdk/lib/mercadopago.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

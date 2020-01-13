@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d505e0b52d51923ea32e5fc98294f29",
+    "content-hash": "a11f9cdd9124bb1d43bd8fc334092b99",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -779,13 +779,51 @@
             ],
             "homepage": "https://github.com/mercadopago/dx-php",
             "time": "2020-01-02T18:25:07+00:00"
+        },
+        {
+            "name": "mercadopago/sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mercadopago/sdk-php.git",
+                "reference": "67f65735d5d720a7fc2569163f5c7d150adc613d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mercadopago/sdk-php/zipball/67f65735d5d720a7fc2569163f5c7d150adc613d",
+                "reference": "67f65735d5d720a7fc2569163f5c7d150adc613d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/mercadopago.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Horacio Casatti",
+                    "email": "horacio.casatti@mercadolibre.com"
+                }
+            ],
+            "description": "MercadoPago SDK module for Payments integration.",
+            "keywords": [
+                "mercadopago",
+                "sdk"
+            ],
+            "time": "2019-04-15T14:29:38+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "mercadopago/dx-php": 20
+        "mercadopago/dx-php": 20,
+        "mercadopago/sdk": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

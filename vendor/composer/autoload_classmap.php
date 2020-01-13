@@ -10,4 +10,7 @@ return array(
     'Firebase\\FirebaseInterface' => $vendorDir . '/ktamas77/firebase-php/src/firebaseInterface.php',
     'Firebase\\FirebaseLib' => $vendorDir . '/ktamas77/firebase-php/src/firebaseLib.php',
     'Firebase\\FirebaseStub' => $vendorDir . '/ktamas77/firebase-php/src/firebaseStub.php',
+    'MP' => $vendorDir . '/mercadopago/sdk/lib/mercadopago.php',
+    'MPRestClient' => $vendorDir . '/mercadopago/sdk/lib/mercadopago.php',
+    'MercadoPagoException' => $vendorDir . '/mercadopago/sdk/lib/mercadopago.php',
 );
