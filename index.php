@@ -45,7 +45,7 @@
                     <h1 class="display-4">Pagar con tarjeta</h1>
                     <p class="lead">Complete todos los campos requeridos (<small class="text-danger">*</small>)</p>
                     <hr class="mb-4" />
-                    <form action="procesar_pago" id="pay" method="post" name="pay">
+                    <form id="pay" method="post" name="pay">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
