@@ -208,9 +208,10 @@
                         <input type="hidden" name="amount" id="amount" />
                         <input type="hidden" name="description" />
                         <input type="hidden" name="paymentMethodId" />
+                        <input type="hidden" name="method" value="card" />
 
                         <div class="btn-group btn-block mt-5">
-                            <input type="button" value="Cancelar" class="btn btn-outline-danger border-0" />
+                            <a href="https://orologifb.com/cart" class="btn btn-outline-danger border-0">Cancelar</a>
                             <input type="submit" value="Confirmar Compra" class="btn btn-success" />
                         </div>
                     </form>

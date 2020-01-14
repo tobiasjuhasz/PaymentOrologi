@@ -1,42 +1,54 @@
 <?php 
     require __DIR__ . '/vendor/autoload.php';
-
-    // Datos del envío 
-    $nom = $_POST['Nombre'];
-    $ape = $_POST['Apellido'];
-    $cpo = $_POST['CPO'];
-    $loc = $_POST['Localidad'];
-    $dir = $_POST['Direccion'];
-    $piso = $_POST['Piso'];
-    $dpto = $_POST['Departamento'];
-    
-
-    // Datos del pago
-    $email = $_POST['email'];
-    $token = $_POST['token'];
-    $installments = $_POST['installments'];
-    $payment_method_id = $_POST['paymentMethodId'];
-    $desc = $_POST['description'];
-    $amount = $_POST['amount'];
-    
     MercadoPago\SDK::setAccessToken("TEST-6540974822759376-011019-a1b37cdb577f60fd7858d07f3615607c-238754877");
-    //...
-    $payment = new MercadoPago\Payment();
-    $payment->transaction_amount = 110;
-    $payment->token = $token;
-    $payment->description = "OrologiFB - " . $desc;
-    $payment->installments = $installments;
-    $payment->payment_method_id = $payment_method_id;
-    $payment->payer = array(
-        "email" => $email
-    );
-    // Save and posting the payment
-    $payment->save();
-    //...
-    // Print the payment status
-    echo $payment->status;
 
-  
+    $method = $_POST['method'];
+
+    if($method == 'card'){
+        // Datos del envío 
+        $nom = $_POST['Nombre'];
+        $ape = $_POST['Apellido'];
+        $cpo = $_POST['CPO'];
+        $loc = $_POST['Localidad'];
+        $dir = $_POST['Direccion'];
+        $piso = $_POST['Piso'];
+        $dpto = $_POST['Departamento'];
+        
+
+        // Datos del pago
+        $email = $_POST['email'];
+        $token = $_POST['token'];
+        $installments = $_POST['installments'];
+        $payment_method_id = $_POST['paymentMethodId'];
+        $desc = $_POST['description'];
+        $amount = $_POST['amount'];
+        
+        //...
+        $payment = new MercadoPago\Payment();
+        $payment->transaction_amount = 110;
+        $payment->token = $token;
+        $payment->description = "OrologiFB - " . $desc;
+        $payment->installments = $installments;
+        $payment->payment_method_id = $payment_method_id;
+        $payment->payer = array(
+            "email" => $email
+        );
+        // Save and posting the payment
+        $payment->save();
+        //...  
+    }
+    if($method == 'mercadopago'){
+        // Crea un objeto de preferencia
+        $preference = new MercadoPago\Preference();
+
+        // Crea un ítem en la preferencia
+        $item = new MercadoPago\Item();
+        $item->title = 'Mi producto';
+        $item->quantity = 1;
+        $item->unit_price = 75.56;
+        $preference->items = array($item);
+        $preference->save();
+    }
 ?>
 
 
@@ -123,6 +135,23 @@
                         </div>
                     </div>
                     <?php } ?>
+
+                    <?php if($method = 'mercadopago') { ?>
+                        <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <form action="/procesar-pago" method="POST">
+                                    <script
+                                    src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+                                    data-preference-id="<?php echo $preference->id; ?>">
+                                    </script>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+
+                    
                 </div>
             </div>
         <!-- App Componet End -->
