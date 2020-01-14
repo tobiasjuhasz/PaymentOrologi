@@ -21,12 +21,9 @@
 
     <title>Payment - OrologiFB</title>
 </head>
-<?php 
-    require_once 'vendor/autoload.php';
-    $uid = $_GET['uid'];
-?>
+
 <body>
-    
+
     <div class="page-container">
         <!-- Nav component Beginning -->
         <div class="bg-dark sticky-top">
@@ -43,23 +40,25 @@
 
         <!-- App Component Beginning -->
         <div class="container content-wrap mt-4" id="app">
-        <div class="jumbotron jumbotron-fluid">
-                    <div class="container">
-                        <h4 class="display-4">Métodos de Envío</h4>
-                        <p class="lead">Seleccione un método para retirar su producto.</p>
-
-                        <hr class="mb-4" />
-
-                        <div class="d-flex row justify-content-center w-100 w-mb-100 m-auto">
-                            <a class="btn btn-light btn-lg col-lg-3 col-sm-12 mr-1" href="/payment_methods.php?uid=<?php echo $uid ?>&shipping=retire" >
-                                Retiro en OrologiFB
-                            </a>
-                            <a class="btn btn-light btn-lg col-lg-3 col-sm-12 ml-1"  href="/payment_methods.php?uid=<?php echo $uid ?>&shipping=mail">
-                                Envío a domicilio
-                            </a>
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h1 class="display-3">
+                                <span class="fa fa-times-circle text-danger"></span>
+                            </h1>
+                            <h1 class="display-4" style="font-size:40px;">
+                                Error 404
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <p class="lead">Página no encontrada.</p>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
         <!-- App Componet End -->
 
@@ -80,8 +79,5 @@
 <!-- Scripts -->
 <script src="src/jquery/jquery-3.4.1.min.js"></script>
 <script src="src/bootstrap/js/bootstrap.js"></script>
-<script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js">
-</script>
-<script src="public/javascripts/mercadopago.js"></script>
 
 </html>

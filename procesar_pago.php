@@ -89,7 +89,7 @@
         <!-- App Component Beginning -->
             <div class="content-wrap container">
                 <div class="jumbotron jumbotron-fluid mt-4">
-
+                    <?php if($method == 'card'){ ?> 
                     <?php if($payment->status = "approved") { ?>
                     <div class="container">
                         <div class="row">
@@ -134,8 +134,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
-
+                    <?php }} ?>
                     <?php if($method = 'mercadopago') { ?>
                         <div class="container">
                         <div class="row">
