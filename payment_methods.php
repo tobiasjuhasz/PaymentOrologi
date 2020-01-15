@@ -51,11 +51,13 @@
                         <hr class="mb-4" />
 
                         <div class="row w-mb-100 justify-content-center m-auto">
-                                <a class="btn btn-light btn-lg col-lg-3 col-sm-12 p-4 mr-2" href="/pay.php?uid=<?php echo $uid ?>&shipping=<?php echo $shipping?>&payment_method=cash">
+                            <div class="col-lg-3 col-sm-12">
+                                <a class="btn btn-light btn-lg btn-block p-4 mr-2 " href="/pay.php?uid=<?php echo $uid ?>&shipping=<?php echo $shipping?>&payment_method=cash">
                                     <img src="/public/images/cash.png" width="50px" alt="" />
                                 </a>
+                            </div>
                                     <div class="col-lg-3 col-sm-12">
-                                        <a class="btn btn-light btn-lg" href="/pay.php?uid=<?php echo $uid ?>&shipping=<?php echo $shipping?>&payment_method=card">
+                                        <a class="btn btn-light btn-lg btn-block" href="/pay.php?uid=<?php echo $uid ?>&shipping=<?php echo $shipping?>&payment_method=card">
                                             <img src="/public/images/credit-debit.png" alt="" width="200px" />
                                         </a>
                                     </div>
@@ -64,8 +66,12 @@
                                         <button class="btn btn-light btn-lg btn-block p-lg-3" type="submit">
                                             <img src="/public/images/mercadopago.png" alt="" width="200px" />
                                         </button>
+                                        <input type="hidden" name="amount" id="total">
+                                        <input type="hidden" name="items" id="items" />
+
                                     </form>
                         </div>
+                        <input type="hidden" name="uid" id="uid" value="<?php echo $uid ?>">
 
                     </div>
                 </div>
@@ -89,4 +95,18 @@
 <!-- Scripts -->
 <script src="src/jquery/jquery-3.4.1.min.js"></script>
 <script src="src/bootstrap/js/bootstrap.js"></script>
+
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+
+  <script src="public/javascripts/firebase.js"></script>
 </html>

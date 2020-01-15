@@ -22,7 +22,6 @@
     <title>Payment - OrologiFB</title>
 </head>
 <?php 
-    require_once 'vendor/autoload.php';
     $uid = $_GET['uid'];
 ?>
 <body>
@@ -43,6 +42,9 @@
 
         <!-- App Component Beginning -->
         <div class="container content-wrap mt-4" id="app">
+        <?php 
+            echo $cart; 
+            ?>
         <div class="jumbotron jumbotron-fluid">
                     <div class="container">
                         <h4 class="display-4">Métodos de Envío</h4>
@@ -60,6 +62,7 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="uid" id="uid" value="<?php echo $uid ?>">
         </div>
         <!-- App Componet End -->
 
@@ -84,4 +87,17 @@
 </script>
 <script src="public/javascripts/mercadopago.js"></script>
 
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+
+  <script src="public/javascripts/firebase.js"></script>
 </html>

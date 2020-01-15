@@ -2,6 +2,9 @@
     "require": {
         "mercadopago/dx-php": "dev-master",
         "ktamas77/firebase-php": "^2.2",
-        "mercadopago/sdk": "dev-master"
+        "mercadopago/sdk": "dev-master",
+        "ahsankhatri/firestore-php": "^2.0",
+        "morrislaptop/firestore-php": "^2.2",
+        "kreait/firebase-php": "^4.38"
     }
 }

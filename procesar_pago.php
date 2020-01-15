@@ -3,6 +3,8 @@
     MercadoPago\SDK::setAccessToken("TEST-6540974822759376-011019-a1b37cdb577f60fd7858d07f3615607c-238754877");
 
     $method = $_POST['method'];
+    $amount = $_POST['amount'];
+    $items = json_decode($_POST['items']);
 
     if($method == 'card'){
         // Datos del envío 
@@ -25,7 +27,7 @@
         
         //...
         $payment = new MercadoPago\Payment();
-        $payment->transaction_amount = 110;
+        $payment->transaction_amount = $amount;
         $payment->token = $token;
         $payment->description = "OrologiFB - " . $desc;
         $payment->installments = $installments;
@@ -42,11 +44,21 @@
         $preference = new MercadoPago\Preference();
 
         // Crea un ítem en la preferencia
-        $item = new MercadoPago\Item();
-        $item->title = 'Mi producto';
-        $item->quantity = 1;
-        $item->unit_price = 75.56;
-        $preference->items = array($item);
+        // $item = new MercadoPago\Item();
+        // $item->title = 'OrologiFB';
+        // $item->quantity = 1;
+        // $item->unit_price = $amount;
+
+        $itemsmp = array();
+        foreach($items as &$i){
+            $item = new MercadoPago\Item();
+            $item->title = "OrologiFB - ". $i->id;
+            $item->quantity = $i->cant;
+            $item->unit_price = $i->value;
+            array_push($itemsmp, $item);
+        }
+
+        $preference->items = $itemsmp;
         $preference->save();
     }
 ?>

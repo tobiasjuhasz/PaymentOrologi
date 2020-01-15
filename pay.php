@@ -205,7 +205,9 @@
                                 </div>
                             </div>
                         </div>
-                        <input type="hidden" name="amount" id="amount" />
+                        <input type="hidden" name="amount" id="total" />
+                        <input type="hidden" name="items" id="items" />
+
                         <input type="hidden" name="description" />
                         <input type="hidden" name="paymentMethodId" />
                         <input type="hidden" name="method" value="card" />
@@ -242,4 +244,18 @@
 </script>
 <script src="public/javascripts/mercadopago.js"></script>
 
+
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+
+  <script src="public/javascripts/firebase.js"></script>
 </html>
