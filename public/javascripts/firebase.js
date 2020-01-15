@@ -9,25 +9,27 @@ var fc = {
     measurementId: "G-ESVKQ35GTM"
 }
 
-var uid = document.getElementById('uid').value;
+if (location.pathname !== "procesar_pago.php") {
+    var uid = document.getElementById('uid').value;
 
-firebase.initializeApp(fc);
-var db = firebase.firestore();
+    firebase.initializeApp(fc);
+    var db = firebase.firestore();
 
-var items;
-var total = 0;
+    var items;
+    var total = 0;
 
-db.collection("cart_" + uid).get().then((querySnapshot) => {
-    items = [];
-    querySnapshot.forEach((doc) => {
-        items.push({
-            id: doc.id,
-            ...doc.data()
+    db.collection("cart_" + uid).get().then((querySnapshot) => {
+        items = [];
+        querySnapshot.forEach((doc) => {
+            items.push({
+                id: doc.id,
+                ...doc.data()
+            });
         });
     });
-});
+}
 
-var data = document.getElementById('data').value;
+var data = document.getElementById('data');
 
 setTimeout(async function() {
     if (location.pathname !== "procesar_pago.php") {
@@ -42,7 +44,7 @@ setTimeout(async function() {
             document.getElementById('total').value = total;
         }
     } else {
-        data = JSON.parse(data);
+        data = JSON.parse(data.value);
 
         console.log(data);
     }
