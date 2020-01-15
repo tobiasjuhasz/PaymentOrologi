@@ -4,27 +4,35 @@
 
     $method = $_POST['method'];
     $amount = $_POST['amount'];
-    $items = json_decode($_POST['items']);
+    $icoded = $_POST['items'];
+    $items = json_decode($icoded);
+    
     $success = $_POST['success'];
-
-    if($method == 'card'){
-        // Datos del envío 
+    $uid = $_POST['uid'];
+    $shipping = $_POST['shipping'];
+    
+    // Datos del envío. 
         $nom = $_POST['Nombre'];
         $ape = $_POST['Apellido'];
+
+        // Datos del pago
+        $email = $_POST['email'];
+        $amount = $_POST['amount'];
+
+
+    if($shipping == 'mail'){
         $cpo = $_POST['CPO'];
         $loc = $_POST['Localidad'];
         $dir = $_POST['Direccion'];
         $piso = $_POST['Piso'];
         $dpto = $_POST['Departamento'];
-        
+    }
 
-        // Datos del pago
-        $email = $_POST['email'];
+    if($method == 'card'){
         $token = $_POST['token'];
         $installments = $_POST['installments'];
         $payment_method_id = $_POST['paymentMethodId'];
         $desc = $_POST['description'];
-        $amount = $_POST['amount'];
         
         //...
         $payment = new MercadoPago\Payment();
@@ -65,18 +73,7 @@
     // }
 
     if($method == 'cash'){
-        $nom = $_POST['Nombre'];
-        $ape = $_POST['Apellido'];
-        $cpo = $_POST['CPO'];
-        $loc = $_POST['Localidad'];
-        $dir = $_POST['Direccion'];
-        $piso = $_POST['Piso'];
-        $dpto = $_POST['Departamento'];
-
-        $email = $_POST['email'];
-        $amount = $_POST['amount'];
         $payment_method_id = $_POST['paymentMethod'];
-
 
         $payment = new MercadoPago\Payment();
         
@@ -89,6 +86,29 @@
       
         $payment->save();
     }
+
+    if($shipping == "retire"){
+        $data = (object)array("method" => $method, "nombre" => $nom, "apellido" => $ape,"email" => $email, "shipping_method" => $shipping, "items" => $items, "total" => $amount);
+    }
+    else 
+    {
+        $data = (object)array(
+            "method" => $method, 
+            "nombre" => $nom, 
+            "apellido" => $ape,
+            "email" => $email,
+            "cpo" => $cpo,
+            "localidad" => $loc, 
+            "direccion" => $dir,
+            "piso" => $piso, 
+            "departamento" => $dpto, 
+            "shipping_method" => $shipping, 
+            "items" => $items, 
+            "total" => $amount
+        );
+    }
+
+    $data = json_encode($data);
 ?>
 
 
@@ -191,6 +211,9 @@
                         <div class="row">
                             <div class="col-lg-12 text-center">
                                 <p class="lead">
+                                    El ticket fue enviado a su correo electrónico.
+                                </p>
+                                <p>
                                     Recuerde que el pago debe realizarse en un plazo de 72 horas. Si tiene alguna duda consulte a <a href="mailto:contactate@orologifb.com">Contactate OrologiFB</a>.  
                                 </p>
                             </div>
@@ -198,7 +221,9 @@
                     </div>
                    
                     <?php } ?>
-                    
+
+                    <input type="hidden" id="data" value="<?php echo $data ?>">
+
                 </div>
             </div>
         <!-- App Componet End -->
@@ -219,6 +244,19 @@
 <!-- Scripts -->
 <script src="src/jquery/jquery-3.4.1.min.js"></script>
 <script src="src/bootstrap/js/bootstrap.js"></script>
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+
+  <script src="public/javascripts/firebase.js"></script>
 
 </html>
 

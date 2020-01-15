@@ -247,6 +247,8 @@
                         <input type="hidden" name="description" />
                         <input type="hidden" name="paymentMethodId" />
                         <input type="hidden" name="method" value="<?php echo $method ?>" />
+                        <input type="hidden" name="uid" id="uid" value="<?php echo $uid ?>" />
+                        <input type="hidden" name="shipping" id="shipping" value="<?php echo $shipping ?>" />
 
                         <div class="btn-group btn-block mt-5">
                             <a href="https://orologifb.com/cart" class="btn btn-outline-danger border-0">Cancelar</a>
