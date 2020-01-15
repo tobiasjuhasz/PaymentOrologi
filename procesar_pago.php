@@ -175,21 +175,21 @@
                         </div>
                     </div>
                     <?php }} ?>
-                    <?php if($method = 'mercadopago') { ?>
+                    <!-- 
                         <div class="container">
                         <div class="row">
                             <div class="col-lg-12 text-center">
                                 <form method="POST">
                                     <script
                                     src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-                                    data-preference-id="<?php echo $preference->id; ?>">
+                                    data-preference-id="">
                                     </script>
                                     <input type="hidden" name="success" value="true">
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                     -->
                     <?php if($method == 'cash') {?>
                         <div class="container">
                         <div class="row">
