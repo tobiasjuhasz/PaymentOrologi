@@ -175,21 +175,7 @@
                         </div>
                     </div>
                     <?php }} ?>
-                    <!-- 
-                        <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 text-center">
-                                <form method="POST">
-                                    <script
-                                    src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-                                    data-preference-id="">
-                                    </script>
-                                    <input type="hidden" name="success" value="true">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                     -->
+
                     <?php if($method == 'cash') {?>
                         <div class="container">
                         <div class="row">
@@ -205,7 +191,7 @@
                         <div class="row">
                             <div class="col-lg-12 text-center">
                                 <p class="lead">
-                                    El pago se debe realizar en un plazo de 72 horas. Para más información consulte <a href="<?echo $payment->transaction_details->external_resource_url ?>">aquí</a>  
+                                    Recuerde que el pago debe realizarse en un plazo de 72 horas. Si tiene alguna duda consulte a <a href="mailto:contactate@orologifb.com">Contactate OrologiFB</a>.  
                                 </p>
                             </div>
                         </div>
