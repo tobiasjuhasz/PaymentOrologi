@@ -27,6 +27,8 @@ db.collection("cart_" + uid).get().then((querySnapshot) => {
     });
 });
 
+var data = document.getElementById('data').value;
+
 setTimeout(async function() {
     if (location.pathname != "procesar_pago.php") {
         if (items === undefined || items.length <= 0) {
@@ -40,8 +42,7 @@ setTimeout(async function() {
             document.getElementById('total').value = total;
         }
     } else {
-        var data = document.getElementById('data').value;
-        var data = JSON.parse(data);
+        data = JSON.parse(data);
 
         console.log(data);
     }
