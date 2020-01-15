@@ -223,6 +223,7 @@
                     <?php } ?>
 
                     <input type="hidden" id="data" value="[<?php echo htmlspecialchars($data, ENT_COMPAT) ?>]">
+                    <input type="hidden" id="uid" value="<?php echo $uid ?>">
 
                 </div>
             </div>
