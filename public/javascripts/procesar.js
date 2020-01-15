@@ -16,4 +16,10 @@ var db = firebase.firestore();
 var data = document.getElementById('data');
 data = JSON.parse(data.value);
 
-console.log(data);
+db.colection("Ventas")
+    .add(data)
+    .then(function(docRef) {
+        console.log("Document Written! id:", docRef);
+    }).catch(function(e) {
+        console.error("Error Writing Document: ", e);
+    })

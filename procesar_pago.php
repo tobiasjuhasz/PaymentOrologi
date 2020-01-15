@@ -222,7 +222,7 @@
                    
                     <?php } ?>
 
-                    <input type="hidden" id="data" value="[<?php echo htmlspecialchars($data, ENT_COMPAT) ?>]">
+                    <input type="hidden" id="data" value="<?php echo htmlspecialchars($data, ENT_COMPAT) ?>">
                     <input type="hidden" id="uid" value="<?php echo $uid ?>">
 
                 </div>
@@ -256,8 +256,6 @@
   <!-- Add Firebase products that you want to use -->
   <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
-
   <script src="public/javascripts/procesar.js"></script>
-
 </html>
 
