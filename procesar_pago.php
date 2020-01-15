@@ -109,6 +109,7 @@
     }
 
     $data = json_encode($data);
+    echo json_decode($payment->transaction_details);
 ?>
 
 
