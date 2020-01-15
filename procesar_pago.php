@@ -6,6 +6,10 @@
     $amount = $_POST['amount'];
     $icoded = $_POST['items'];
     $items = json_decode($icoded);
+
+    foreach($items as &$i){
+        $products += $i->id . "(". $i->cant .") -"; 
+    }
     
     $success = $_POST['success'];
     $uid = $_POST['uid'];
@@ -38,7 +42,7 @@
         $payment = new MercadoPago\Payment();
         $payment->transaction_amount = floatval($amount);
         $payment->token = $token;
-        $payment->description = "OrologiFB";
+        $payment->description = "OrologiFB - ". $products . "(". $uid .")";
         $payment->installments = $installments;
         $payment->payment_method_id = $payment_method_id;
         $payment->payer = array(
@@ -78,7 +82,7 @@
         $payment = new MercadoPago\Payment();
         
         $payment->transaction_amount = floatval($amount);
-        $payment->description = "OrologiFB";
+        $payment->description = "OrologiFB - ". $products;
         $payment->payment_method_id = $payment_method_id;
         $payment->payer = array(
           "email" => $email
@@ -88,7 +92,15 @@
     }
 
     if($shipping == "retire"){
-        $data = (object)array("method" => $method, "nombre" => $nom, "apellido" => $ape,"email" => $email, "shipping_method" => $shipping, "items" => $items, "total" => $amount);
+        $data = (object)array(
+            "method" => $method, 
+            "nombre" => $nom, 
+            "apellido" => $ape,
+            "email" => $email, 
+            "shipping_method" => $shipping, 
+            "items" => $items, 
+            "total" => $amount
+        );
     }
     else 
     {
@@ -105,7 +117,7 @@
             "shipping_method" => $shipping, 
             "items" => $items, 
             "total" => $amount,
-            "transaction_details" => $payment->transaction_details
+            "uid" => $uid
         );
     }
 
