@@ -34,7 +34,9 @@ setTimeout(async function() {
     items.forEach(i => {
         total += i.cant * i.value;
     });
-    document.getElementById('items').value = JSON.stringify(items);
-    document.getElementById('total').value = total;
+    if (location.pathname !== 'shipping_way.php') {
+        document.getElementById('items').value = JSON.stringify(items);
+        document.getElementById('total').value = total;
+    }
     return;
 }, 2500);

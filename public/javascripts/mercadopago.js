@@ -10,6 +10,21 @@ function addEvent(to, type, fn) {
     }
 };
 
+setTimeout(function() {
+    const paymentMethods = Mercadopago.getPaymentMethods();
+    var options = document.getElementById('paymentMethods');
+    paymentMethods.forEach(p => {
+        if (p.payment_type_id == "ticket" && p.id == "pagofacil" || p.id == "rapipago") {
+            const o = document.createElement("option");
+            o.setAttribute('value', p.id);
+            var text = document.createTextNode(p.name);
+            o.appendChild(text);
+            options.appendChild(o);
+            console.log(options);
+        }
+    });
+}, 2000);
+
 addEvent(document.getElementById('cardNumber'), 'keyup', guessingPaymentMethod);
 addEvent(document.getElementById('cardNumber'), 'change', guessingPaymentMethod);
 

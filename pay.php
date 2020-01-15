@@ -21,7 +21,11 @@
 
     <title>Payment - OrologiFB</title>
 </head>
-
+<?php 
+    $uid = $_GET['uid'];
+    $shipping = $_GET['shipping'];
+    $method = $_GET['payment_method'];
+?>
 <body>
     
     <div class="page-container">
@@ -42,7 +46,7 @@
         <div class="container content-wrap mt-4" id="app">
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                    <h1 class="display-4">Pagar con tarjeta</h1>
+                    <h1 class="display-4">Pagar <?php if($method == 'card'){ echo "con Tarjeta"; } if($method == 'cash'){ echo "en Efectivo"; } ?></h1>
                     <p class="lead">Complete todos los campos requeridos (<small class="text-danger">*</small>)</p>
                     <hr class="mb-4" />
                     <form action="procesar_pago.php" id="pay" method="post" name="pay">
@@ -63,7 +67,7 @@
 
                             </div>
                         </div>
-
+                        <?php if($shipping == 'mail') { ?> 
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="row">
@@ -105,6 +109,10 @@
                                 </div>
                             </div>
                         </div>
+
+                        <?php }?>
+
+                        <?php if($method == 'card') { ?>
                         <div class="row">
 
                             <div class="col-lg-6">
@@ -205,9 +213,37 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <?php }?>
+                        <?php if($method == 'cash') { ?>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label htmlFor="email">Email</label> <small class="text-danger">*</small>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text fa fa-envelope"></span>
+                                            </div>
+                                            <input type="email" id="email" name="email" class="form-control" placeholder="example@example.com" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label htmlFor="email">Método de Pago</label> <small class="text-danger">*</small>
+                                        <div class="input-group">
+                                            <select type="email" id="paymentMethods" name="paymentMethod" class="form-control">
+                                                <option value="default">Seleccione un método de pago...</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php }?>
+
                         <input type="hidden" name="amount" id="total" />
                         <input type="hidden" name="items" id="items" />
-
                         <input type="hidden" name="description" />
                         <input type="hidden" name="paymentMethodId" />
                         <input type="hidden" name="method" value="card" />

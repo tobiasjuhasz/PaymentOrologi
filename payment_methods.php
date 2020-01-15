@@ -63,12 +63,11 @@
                                     </div>
                                     <form action="procesar_pago.php" class="col-lg-3 col-sm-12" method="post">
                                         <input type="hidden" name="method" value="mercadopago">
-                                        <button class="btn btn-light btn-lg btn-block p-lg-3" type="submit">
+                                        <button class="btn btn-light btn-lg btn-block p-lg-3 disabled" title="En desarrollo" disabled type="submit">
                                             <img src="/public/images/mercadopago.png" alt="" width="200px" />
                                         </button>
                                         <input type="hidden" name="amount" id="total">
                                         <input type="hidden" name="items" id="items" />
-
                                     </form>
                         </div>
                         <input type="hidden" name="uid" id="uid" value="<?php echo $uid ?>">

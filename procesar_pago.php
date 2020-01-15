@@ -5,6 +5,7 @@
     $method = $_POST['method'];
     $amount = $_POST['amount'];
     $items = json_decode($_POST['items']);
+    $success = $_POST['success'];
 
     if($method == 'card'){
         // Datos del envío 
@@ -29,7 +30,7 @@
         $payment = new MercadoPago\Payment();
         $payment->transaction_amount = $amount;
         $payment->token = $token;
-        $payment->description = "OrologiFB - " . $desc;
+        $payment->description = "OrologiFB";
         $payment->installments = $installments;
         $payment->payment_method_id = $payment_method_id;
         $payment->payer = array(
@@ -39,27 +40,54 @@
         $payment->save();
         //...  
     }
-    if($method == 'mercadopago'){
-        // Crea un objeto de preferencia
-        $preference = new MercadoPago\Preference();
 
-        // Crea un ítem en la preferencia
-        // $item = new MercadoPago\Item();
-        // $item->title = 'OrologiFB';
-        // $item->quantity = 1;
-        // $item->unit_price = $amount;
+    // if($method == 'mercadopago'){
+    //     // Crea un objeto de preferencia
+    //     $preference = new MercadoPago\Preference();
 
-        $itemsmp = array();
-        foreach($items as &$i){
-            $item = new MercadoPago\Item();
-            $item->title = "OrologiFB - ". $i->id;
-            $item->quantity = $i->cant;
-            $item->unit_price = $i->value;
-            array_push($itemsmp, $item);
-        }
+    //     // Crea un ítem en la preferencia
+    //     // $item = new MercadoPago\Item();
+    //     // $item->title = 'OrologiFB';
+    //     // $item->quantity = 1;
+    //     // $item->unit_price = $amount;
 
-        $preference->items = $itemsmp;
-        $preference->save();
+    //     $itemsmp = array();
+    //     foreach($items as &$i){
+    //         $item = new MercadoPago\Item();
+    //         $item->title = "OrologiFB - ". $i->id;
+    //         $item->quantity = $i->cant;
+    //         $item->unit_price = $i->value;
+    //         array_push($itemsmp, $item);
+    //     }
+
+    //     $preference->items = $itemsmp;
+    //     $preference->save();
+    // }
+
+    if($method == 'cash'){
+        $nom = $_POST['Nombre'];
+        $ape = $_POST['Apellido'];
+        $cpo = $_POST['CPO'];
+        $loc = $_POST['Localidad'];
+        $dir = $_POST['Direccion'];
+        $piso = $_POST['Piso'];
+        $dpto = $_POST['Departamento'];
+
+        $email = $_POST['email'];
+        $amount = $_POST['amount'];
+        $payment_method_id = $_POST['paymentMethod'];
+
+
+        $payment = new MercadoPago\Payment();
+        
+        $payment->transaction_amount = $amount;
+        $payment->description = "OrologiFB";
+        $payment->payment_method_id = $payment_method_id;
+        $payment->payer = array(
+          "email" => $email
+        );
+      
+        $payment->save();
     }
 ?>
 
@@ -101,7 +129,7 @@
         <!-- App Component Beginning -->
             <div class="content-wrap container">
                 <div class="jumbotron jumbotron-fluid mt-4">
-                    <?php if($method == 'card'){ ?> 
+                    <?php if($method == 'card' || $success == 'true'){ ?> 
                     <?php if($payment->status = "approved") { ?>
                     <div class="container">
                         <div class="row">
@@ -151,17 +179,39 @@
                         <div class="container">
                         <div class="row">
                             <div class="col-lg-12 text-center">
-                                <form action="/procesar-pago" method="POST">
+                                <form method="POST">
                                     <script
                                     src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
                                     data-preference-id="<?php echo $preference->id; ?>">
                                     </script>
+                                    <input type="hidden" name="success" value="true">
                                 </form>
                             </div>
                         </div>
                     </div>
                     <?php } ?>
-
+                    <?php if($method == 'cash') {?>
+                        <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <h1 class="display-3">
+                                    <span class="fa fa-check-circle text-success"></span>
+                                </h1>
+                                <h1 class="display-4" style="font-size:40px;">
+                                    El ticket se emitió con éxito.
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <p class="lead">
+                                    El pago se debe realizar en un plazo de 72 horas. Para más información consulte <a href="<?echo $payment->transaction_details->external_resource_url ?>">aquí</a>  
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <?php } ?>
                     
                 </div>
             </div>

@@ -27,6 +27,10 @@
     background-color: #333 !important;
 }
 
+.disabled:hover {
+    cursor: no-drop;
+}
+
 #device_profile,
 #thm_mp_cntnr {
     display: none;
