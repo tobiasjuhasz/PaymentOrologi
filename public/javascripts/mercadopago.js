@@ -20,7 +20,6 @@ setTimeout(function() {
             var text = document.createTextNode(p.name);
             o.appendChild(text);
             options.appendChild(o);
-            console.log(options);
         }
     });
 }, 5000);

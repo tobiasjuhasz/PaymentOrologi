@@ -20,26 +20,27 @@ if (location.pathname !== "procesar_pago.php") {
 
     db.collection("cart_" + uid).get().then((querySnapshot) => {
         items = [];
-        querySnapshot.forEach((doc) => {
-            items.push({
-                id: doc.id,
-                ...doc.data()
+        if (querySnapshot.size > 0) {
+            querySnapshot.forEach((doc) => {
+                items.push({
+                    id: doc.id,
+                    ...doc.data()
+                });
+                total += doc.data().value * doc.data().cant;
             });
-        });
+
+            if (location.pathname !== 'shipping_way.php') {
+                document.getElementById('items').value = JSON.stringify(items);
+                document.getElementById('total').value = total;
+            }
+        } else {
+            location.pathname = "notfound.html";
+        }
     });
 }
 
 
 setTimeout(function() {
-    if (items === undefined || items.length <= 0) {
-        location.pathname = "notfound.html";
-    }
-    items.forEach(i => {
-        total += i.cant * i.value;
-    });
-    if (location.pathname !== 'shipping_way.php') {
-        document.getElementById('items').value = JSON.stringify(items);
-        document.getElementById('total').value = total;
-    }
+
     return;
 }, 2500);
