@@ -104,12 +104,12 @@
             "departamento" => $dpto, 
             "shipping_method" => $shipping, 
             "items" => $items, 
-            "total" => $amount
+            "total" => $amount,
+            "transaction_details" => $payment->transaction_details
         );
     }
 
     $data = json_encode($data);
-    echo json_decode($payment->transaction_details);
 ?>
 
 
