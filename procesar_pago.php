@@ -80,7 +80,7 @@
 
         $payment = new MercadoPago\Payment();
         
-        $payment->transaction_amount = 100;
+        $payment->transaction_amount = number_format((float) $amount, 2, '.', '');;
         $payment->description = "OrologiFB";
         $payment->payment_method_id = $payment_method_id;
         $payment->payer = array(
