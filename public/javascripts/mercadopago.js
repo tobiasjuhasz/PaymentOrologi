@@ -23,7 +23,7 @@ setTimeout(function() {
             console.log(options);
         }
     });
-}, 2000);
+}, 5000);
 
 addEvent(document.getElementById('cardNumber'), 'keyup', guessingPaymentMethod);
 addEvent(document.getElementById('cardNumber'), 'change', guessingPaymentMethod);
