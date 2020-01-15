@@ -222,7 +222,7 @@
                    
                     <?php } ?>
 
-                    <input type="hidden" id="data" value="[<?php echo $data ?>]">
+                    <input type="hidden" id="data" value="[<?php echo htmlspecialchars($data, ENT_COMPAT) ?>]">
 
                 </div>
             </div>
