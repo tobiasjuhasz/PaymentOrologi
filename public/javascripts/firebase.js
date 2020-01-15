@@ -29,24 +29,17 @@ if (location.pathname !== "procesar_pago.php") {
     });
 }
 
-var data = document.getElementById('data');
 
-setTimeout(async function() {
-    if (location.pathname !== "procesar_pago.php") {
-        if (items === undefined || items.length <= 0) {
-            location.pathname = "notfound.html";
-        }
-        items.forEach(i => {
-            total += i.cant * i.value;
-        });
-        if (location.pathname !== 'shipping_way.php') {
-            document.getElementById('items').value = JSON.stringify(items);
-            document.getElementById('total').value = total;
-        }
-    } else {
-        data = JSON.parse(data.value);
-
-        console.log(data);
+setTimeout(function() {
+    if (items === undefined || items.length <= 0) {
+        location.pathname = "notfound.html";
+    }
+    items.forEach(i => {
+        total += i.cant * i.value;
+    });
+    if (location.pathname !== 'shipping_way.php') {
+        document.getElementById('items').value = JSON.stringify(items);
+        document.getElementById('total').value = total;
     }
     return;
 }, 2500);

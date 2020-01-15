@@ -257,7 +257,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
 
-  <script src="public/javascripts/firebase.js"></script>
+  <script src="public/javascripts/procesar.js"></script>
 
 </html>
 
