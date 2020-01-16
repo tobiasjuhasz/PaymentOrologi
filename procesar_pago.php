@@ -99,7 +99,9 @@
             "email" => $email, 
             "shipping_method" => $shipping, 
             "items" => $items, 
-            "total" => $amount
+            "total" => $amount,
+            "uid" => $uid
+
         );
     }
     else 
