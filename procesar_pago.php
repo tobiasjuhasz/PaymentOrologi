@@ -1,6 +1,6 @@
 <?php 
     require __DIR__ . '/vendor/autoload.php';
-    MercadoPago\SDK::setAccessToken("TEST-6540974822759376-011019-a1b37cdb577f60fd7858d07f3615607c-238754877");
+    MercadoPago\SDK::setAccessToken("APP_USR-3249612143022759-011621-83985b0484de3cf9a13520f917b8a221-419549722");
 
     $method = $_POST['method'];
     $amount = $_POST['amount'];

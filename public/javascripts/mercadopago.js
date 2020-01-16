@@ -1,4 +1,4 @@
-Mercadopago.setPublishableKey("TEST-942139d0-9543-4547-8d04-524554820231");
+Mercadopago.setPublishableKey("APP_USR-0bc65f0a-009d-40e3-b922-51b606c1168e");
 
 function addEvent(to, type, fn) {
     if (document.addEventListener) {
