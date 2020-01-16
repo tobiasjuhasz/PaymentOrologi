@@ -17,21 +17,11 @@ var data = document.getElementById('data');
 var uid = document.getElementById('uid');
 data = JSON.parse(data.value);
 
-db.collection("ventas")
-    .add(data)
-    .then(function(docRef) {
-        console.log("Document Written! id:", docRef);
-    }).catch(function(e) {
-        console.error("Error Writing Document: ", e);
-    })
+db.collection("ventas").add(data);
 
 
 db.collection("cart_" + uid).get().then((q) => {
     q.forEach((d) => {
-        db.collection("cart_" + uid).doc(d.id).delete().then(function() {
-            console.log("Collection successfully deleted!");
-        }).catch(function(error) {
-            console.error("Error removing document: ", error);
-        });
+        db.collection("cart_" + uid).doc(d.id).delete();
     })
 });
