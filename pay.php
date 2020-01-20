@@ -73,7 +73,7 @@
                                 <div class="row">
                                     <div class="col-3">
                                         <div class="form-group">
-                                            <label htmlFor="">CPO</label> <small class="text-danger">*</small>
+                                            <label htmlFor="">Código Postal</label> <small class="text-danger">*</small>
                                             <input type="text" name="CPO" id="CPO" class="form-control" placeholder="" aria-describedby="helpId" required />
                                         </div>
                                     </div>
